@@ -18,21 +18,68 @@
         font-family: 'Product Sans';
         font-size: 28px;
     }
+    h3 {
+        font-family: 'Product Sans';
+        font-size: 24px;
+    }
     button {
         background-color: red;
         font-family: 'Product Sans';
-    	font-size: 24px;
+    	font-size: 40px;
+    }
+    button:hover {
+		opacity: 0.5
+	}
+
+	button:active {
+  		transform: translateY(15px);
+	}
+
+    #source {
+
     }
 </style>
 
-<body>
+<script>
+    function getStats()
+    {
+        // Getting Current Date and Putting it into stats div
+        var date = new Date();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        var year = date.getFullYear();
+        var currentDate = 'Current Global Statistics Of COVID-19 As Of: ' + month + '/' + day + '/' + year;
+        document.getElementById("date").innerHTML = currentDate;
+
+        //Getting Stat for Total Number of Cases
+        
+
+    }
+</script>
+
+
+<body onload="getStats()">
     <div id="startmenu" style="text-align: center;">
     <h1>DefendCOVID: A Game to Pass the Quarentine Period by killing COVID-19s</h1>
-    <h2>Attack COVID-19!</h2>
+    <h2>Attack the COVID-19 Virus Virtually!</h2>
     <img src="media/COVID19.gif" alt="The COVID-19 Virus">
     <br></br>
-    <button>Play</button>
+    <button onclick="getcurrenttime()">Play</button>
     </div> 
+
+    <br></br>
+    <br></br>
+
+    <div id="stats">
+        <h3 id="date"></h3> 
+        <h3>Number of Total Cases:</h3>
+        <h3 style="color:goldenrod;">Number of Infected: </h3>
+        <h3 style="color:red;">Number of Deaths: </h3>
+        <h3 style="color:lime;">Number of Recovered: </h3>
+        <h3 style="font-size:18px">Source: <a target="_blank" href="https://www.worldometers.info/coronavirus/">WorldOMeter</a></h2>
+        
+    </div>
+
 
     <audio id="background" autoplay loop="true">
         <source src="media/background.mp3" type="audio/mpeg">
