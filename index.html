@@ -35,13 +35,15 @@
   		transform: translateY(15px);
 	}
 
-    #source {
-
-    }
 </style>
 
 <script>
-    function getStats()
+/* Start Script */
+
+    /*
+    * Function to get Date and Time
+    */
+    function getDate()
     {
         // Getting Current Date and Putting it into stats div
         var date = new Date();
@@ -66,24 +68,70 @@
             hour -= 12;
             currentDate += ' at ' + hour + ':' + minutes + ':' + seconds + ' PM';
         }
-
         document.getElementById("date").innerHTML = currentDate;
+    }
 
-        //Getting Stat for Total Number of Cases
-        
+    function getStats() {
+        //Getting Stats for Total Number of Cases
+        var source = document.URL("https://www.worldmeters.info/coronavirus");
+        var total = document.getElementById("total");
 
     }
+
+    function prompt() {
+        var start = document.getElementById("start");
+        if(confirm("This is the game. You will guess how many hidden COVID-19 entities (0-19) are on the screen in 5 tries. Press Ok to Proceed.")) {
+            start.parentNode.removeChild(start);
+            doGame();
+        }
+        else {
+           reload();
+        }
+    }
+
+    function doGame() {
+        var random = Math.floor(Math.random() * 19);
+        var triesLeft;
+        document.write("<h1 style=\"font-family:'Roboto';\">Welcome to the DefendCOVID! There are COVID-19(s) hiding in the screen like this.</h1>");
+        document.writeln("<img src=\"media/COVID19.png\" style=\" width:1%\" alt=\"The COVID-19 Virus\">")
+        for(triesLeft = 5; triesLeft > 0; triesLeft--) {
+            document.writeln("You have " + triesLeft + " tries left. Please guess how many viruses are there: ");
+        }
+        if(triesLeft == 0) {
+            document.write("Oh no! You don't know if there are any viruses left! The COVID-19s are infecting the body and the patient is in critical condition.")
+            if(confirm("Press Ok to Try Again.")) {
+                reload();
+            }
+            else {
+                window.close();
+            }
+        }
+        else {
+            document.write("Congrats! You correctly identified the number of viruses, and you helped doctors locate the virus and treat it! Yay!")
+        }
+
+    }
+
+    
+
+    /* Function to execute methods */
+    function main() {
+        getDate();
+        getStats();
+    }
+
+/* End Script */
 </script>
 
 
-<body onload="getStats()">
+<body onload="main()">
     <div id="start">
     <div id="startmenu" style="text-align: center;">
     <h1>DefendCOVID: A Game to Pass the Quarentine Period by killing COVID-19s</h1>
     <h2>Attack the COVID-19 Virus Virtually!</h2>
     <img src="media/COVID19.gif" alt="The COVID-19 Virus">
     <br></br>
-    <button onclick="getcurrenttime()">Play</button>
+    <button onclick="prompt()">Play</button>
     </div> 
 
     <br></br>
@@ -91,7 +139,7 @@
 
     <div id="stats">
         <h3 id="date"></h3> 
-        <h3>Number of Total Cases:</h3>
+        <h3 id="total">Number of Total Cases:</h3>
         <h3 style="color:goldenrod;">Number of Infected: </h3>
         <h3 style="color:red;">Number of Deaths: </h3>
         <h3 style="color:lime;">Number of Recovered: </h3>
