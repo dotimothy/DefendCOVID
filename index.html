@@ -93,9 +93,11 @@
         var random = Math.floor(Math.random() * 19);
         var triesLeft;
         document.write("<h1 style=\"font-family:'Roboto';\">Welcome to the DefendCOVID! There are COVID-19(s) hiding in the screen like this.</h1>");
-        document.writeln("<img src=\"media/COVID19.png\" style=\" width:1%\" alt=\"The COVID-19 Virus\">")
+        document.write("<img src=\"media/COVID19.png\" style=\" width:10%\" alt=\"The COVID-19 Virus\">")
+        document.write("<br></br>");
         for(triesLeft = 5; triesLeft > 0; triesLeft--) {
-            document.writeln("You have " + triesLeft + " tries left. Please guess how many viruses are there: ");
+            document.write("You have " + triesLeft + " tries left. Please guess how many viruses are there: ");
+            document.write("<br></br>");
         }
         if(triesLeft == 0) {
             document.write("Oh no! You don't know if there are any viruses left! The COVID-19s are infecting the body and the patient is in critical condition.")
