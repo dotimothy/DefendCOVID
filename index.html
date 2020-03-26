@@ -74,6 +74,7 @@
             }
             currentDate += ' at ' + hour + ':' + minutes + ':' + seconds + ' PM';
         }
+        currentDate += " (Courtesy of John Hopkins University)";
         document.getElementById("date").innerHTML = currentDate;
     }
 
@@ -101,7 +102,7 @@
         var triesLeft;
         var guess;
         document.write("<h1 style=\"font-family:'Roboto';\">Welcome to the DefendCOVID! There are 0-20 COVID-19(s) hiding in the screen like this.</h1>");
-        document.write("<img src=\"media/COVID19.gif\" style=\" width:10%\" alt=\"The COVID-19 Virus\">")
+        document.write("<img src=\"media/COVID19.gif\" style=\" width:5%\" alt=\"The COVID-19 Virus\">")
         document.write("<br></br>");
         for(triesLeft = 5; triesLeft > 0; triesLeft--) {
             if(triesLeft == 1) {
@@ -120,9 +121,19 @@
             }
             document.write("<br></br>");
         }
+        //document.body.innerHTML='';
         if(guess != random) {
-            document.write("Oh no! You don't know if there are any viruses left! The COVID-19s are infecting the body and the patient is in critical condition.")
- 
+            document.write("Oh no! You don't know if there are any viruses left! The COVID-19s are infecting the body and the patient is in critical condition! The actual number of COVID-19s is " + random + ". They are infecting the screen! (as a joke, of course)");
+            var number;
+            for(number = 0; number < random; number++) {
+                if(number % 2 == 0) {
+                    document.write("<marquee scrollamount = 25 direction = \"left\"><img src =\"media/COVID19.gif\" height =\"50\" width =\"50\" alt =\"COVID-19\"/></marquee>");
+                }
+                else {
+                     document.write("<marquee scrollamount = 25 direction = \"right\"><img src =\"media/COVID19.gif\" height =\"50\" width =\"50\" alt =\"COVID-19\"/></marquee>");
+                }
+                document.write("<br></br>");
+            }
         }
         else {
             document.write("Congrats! You correctly identified the number of viruses, helping doctors locate the virus and treat it! Yay!")
@@ -157,11 +168,7 @@
 
     <div id="stats">
         <h3 id="date"></h3> 
-        <h3 id="total">Number of Total Cases:</h3>
-        <h3 style="color:goldenrod;">Number of Infected: </h3>
-        <h3 style="color:red;">Number of Deaths: </h3>
-        <h3 style="color:lime;">Number of Recovered: </h3>
-        <h3 style="font-size:18px">Source: <a target="_blank" href="https://www.worldometers.info/coronavirus/">WorldOMeter</a></h2>
+        <embed src= "https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6" width="100%" height="750px"/>
         
     </div>
 
