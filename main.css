@@ -1,0 +1,24 @@
+    h1 {
+        font-family: 'Product Sans';
+        font-size: 32px;
+    }
+    h2 {
+        font-family: 'Product Sans';
+        font-size: 28px;
+    }
+    h3 {
+        font-family: 'Product Sans';
+        font-size: 24px;
+    }
+    button {
+        background-color: red;
+        font-family: 'Product Sans';
+    	font-size: 40px;
+    }
+    button:hover {
+		opacity: 0.5
+	}
+
+	button:active {
+  		transform: translateY(15px);
+	}
