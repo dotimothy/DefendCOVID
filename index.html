@@ -61,11 +61,17 @@
             minutes = '0' + minutes;
         }
         var hour = date.getHours();
-        if(hour < 12) {
+        if(hour == 0) {
+            hour += 12;
+            currentDate += ' at ' + hour + ':' + minutes + ':' + seconds + ' AM';
+        }
+        else if(hour < 12) {
             currentDate += ' at ' + hour + ':' + minutes + ':' + seconds + ' AM';
         }
         else {
-            hour -= 12;
+            if(hour != 12){
+               hour -= 12; 
+            }
             currentDate += ' at ' + hour + ':' + minutes + ':' + seconds + ' PM';
         }
         document.getElementById("date").innerHTML = currentDate;
@@ -80,8 +86,9 @@
 
     function prompt() {
         var start = document.getElementById("start");
-        if(confirm("This is the game. You will guess how many hidden COVID-19 entities (0-19) are on the screen in 5 tries. Press Ok to Proceed.")) {
+        if(confirm("This is the game. You have to guess how many hidden COVID-19 entities (0-19) are on the screen in 5 tries. Press Ok to Proceed.")) {
             start.parentNode.removeChild(start);
+            document.write("<title>DefendCOVID</title>");
             doGame();
         }
         else {
@@ -90,23 +97,32 @@
     }
 
     function doGame() {
-        var random = Math.floor(Math.random() * 19);
+        var random = Math.floor(Math.random() * 20);
         var triesLeft;
-        document.write("<h1 style=\"font-family:'Roboto';\">Welcome to the DefendCOVID! There are COVID-19(s) hiding in the screen like this.</h1>");
+        var guess;
+        document.write("<h1 style=\"font-family:'Roboto';\">Welcome to the DefendCOVID! There are 0-20 COVID-19(s) hiding in the screen like this.</h1>");
         document.write("<img src=\"media/COVID19.png\" style=\" width:10%\" alt=\"The COVID-19 Virus\">")
         document.write("<br></br>");
         for(triesLeft = 5; triesLeft > 0; triesLeft--) {
-            document.write("You have " + triesLeft + " tries left. Please guess how many viruses are there: ");
-            document.write("<br></br>");
-        }
-        if(triesLeft == 0) {
-            document.write("Oh no! You don't know if there are any viruses left! The COVID-19s are infecting the body and the patient is in critical condition.")
-            if(confirm("Press Ok to Try Again.")) {
-                reload();
+            if(triesLeft == 1) {
+                document.write("You have " + triesLeft + " try left. Please guess how many viruses are there: <input type=\"number\" id=\"input\" min=\"0\" max=\"20\"> ");
+                guess = document.getElementById("input").value;
+                if(guess == random) {
+                    triesLeft = 0;
+                }
             }
             else {
-                window.close();
+                document.write("You have " + triesLeft + " tries left. Please guess how many viruses are there: <input type=\"number\" id=\"input\" min=\"0\" max=\"20\"> ");
+                guess = document.getElementById("input").value;
+                  if(guess == random) {
+                    triesLeft = 0;
+                }
             }
+            document.write("<br></br>");
+        }
+        if(guess != random) {
+            document.write("Oh no! You don't know if there are any viruses left! The COVID-19s are infecting the body and the patient is in critical condition.")
+ 
         }
         else {
             document.write("Congrats! You correctly identified the number of viruses, and you helped doctors locate the virus and treat it! Yay!")
