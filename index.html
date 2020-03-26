@@ -86,11 +86,9 @@
 
     function prompt() {
         var start = document.getElementById("start");
-        var audio = document.getElementById("background");
         if(confirm("This is the game. You have to guess how many hidden COVID-19 entities (0-20) are on the screen in 5 tries. Press Ok to Proceed.")) {
             start.parentNode.removeChild(start);
             document.write("<title>DefendCOVID</title>");
-            audio.play();
             doGame();
         }
         else {
@@ -127,7 +125,7 @@
  
         }
         else {
-            document.write("Congrats! You correctly identified the number of viruses, helping doctors locate the virus and treat it! Yay!")
+            document.write("Congrats! You correctly identified the number of viruses, and you helped doctors locate the virus and treat it! Yay!")
         }
 
     }
@@ -168,7 +166,7 @@
     </div>
 
 
-    <audio id="background" loop="true">
+    <audio id="background" autoplay loop="true">
         <source src="media/background.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
