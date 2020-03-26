@@ -38,13 +38,6 @@
         document.getElementById("date").innerHTML = currentDate;
     }
 
-    function getStats() {
-        //Getting Stats for Total Number of Cases
-        var source = document.URL("https://www.worldmeters.info/coronavirus");
-        var total = document.getElementById("total");
-
-    }
-
     function prompt() {
         var start = document.getElementById("start");
         if(confirm("This is the game. You have to guess how many hidden COVID-19 entities (0-20) are on the screen in 5 tries. Press Ok to Proceed.")) {
@@ -110,7 +103,6 @@
     /* Function to execute methods */
     function main() {
         getDate();
-        getStats();
     }
 
 /* End Script */
