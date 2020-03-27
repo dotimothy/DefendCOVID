@@ -62,18 +62,19 @@
         for(triesLeft = 5; triesLeft > 0; triesLeft--) {
             if(triesLeft == 1) {
                 document.write("You have " + triesLeft + " try left. Please guess how many viruses are there: <input type=\"number\" id=\"input\" min=\"0\" max=\"20\"> ");
-                guess = document.getElementById("input").value;
-                if(guess == random) {
-                    triesLeft = 0;
-                }
             }
             else {
                 document.write("You have " + triesLeft + " tries left. Please guess how many viruses are there: <input type=\"number\" id=\"input\" min=\"0\" max=\"20\"> ");
+            } 
                 guess = document.getElementById("input").value;
-                  if(guess == random) {
-                    triesLeft = 0;
+                while(guess != null) {
+                    if(guess == random) {
+                        triesLeft = 0;
+                    }
+                    else {
+                        continue;
+                    }
                 }
-            }
             document.write("<br></br>");
         }
         //document.body.innerHTML='';
