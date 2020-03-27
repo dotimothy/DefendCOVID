@@ -1,5 +1,10 @@
 /* Start Script */
 
+//Problems
+//1. Cannot compare input and random number for some reason in doGame().
+//2. Can't stop the for loop from iterating until input is submitted in doGame().
+
+
     /*
     * Function to get Date and Time
     */
@@ -67,7 +72,7 @@
                 document.write("You have " + triesLeft + " tries left. Please guess how many viruses are there: <input type=\"number\" id=\"input\" min=\"0\" max=\"20\"> ");
             } 
                 guess = document.getElementById("input").value;
-                while(guess != null) {
+                while(guess == null) {
                     if(guess == random) {
                         triesLeft = 0;
                     }
@@ -98,8 +103,6 @@
         }
 
     }
-
-    
 
     /* Function to execute methods */
     function main() {
