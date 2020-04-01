@@ -41,6 +41,7 @@
         }
         currentDate += " (Courtesy of John Hopkins University)";
         document.getElementById("date").innerHTML = currentDate;
+        setTimeout(getDate, 1000);
     }
 
     function prompt() {
