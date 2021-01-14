@@ -52,7 +52,7 @@
             document.write("<link rel=\"stylesheet\" href=\"main.css\">");
             document.write("<link href='https://fonts.googleapis.com/css?family=Product+Sans' rel='stylesheet' type='text/css'>");
             document.write("<h1>Welcome to the DefendCOVID! There are 0-20 COVID-19(s) hiding in the screen like this.</h1>");
-            document.write("<img src=\"media/COVID19.gif\" style=\" width:10%\" alt=\"The COVID-19 Virus\">")
+            document.write("<img src=\"media/COVID19.png\" class=\"covid\" style=\" width:10%\" alt=\"The COVID-19 Virus\">")
             document.write("<br></br>");
             document.write("<button id=\"begin\" onclick=\"doGame()\">Begin Guessing!</button>");
             document.write("<br></br>");
@@ -85,10 +85,10 @@
             var number;
             for(number = 0; number < random; number++) {
                 if(number % 2 == 0) {
-                    document.write("<marquee scrollamount = 75 direction = \"left\"><img src =\"media/COVID19.gif\" height =\"75\" width =\"75\" alt =\"COVID-19\"/></marquee>");
+                    document.write("<marquee scrollamount = 75 direction = \"left\"><img src =\"media/COVID19.png\" class=\"covid\" height =\"75\" width =\"75\" alt =\"COVID-19\"/></marquee>");
                 }
                 else {
-                     document.write("<marquee scrollamount = 75 direction = \"right\"><img src =\"media/COVID19.gif\" height =\"75\" width =\"75\" alt =\"COVID-19\"/></marquee>");
+                     document.write("<marquee scrollamount = 75 direction = \"right\"><img src =\"media/COVID19.png\" class=\"covid\" height =\"75\" width =\"75\" alt =\"COVID-19\"/></marquee>");
                 }
                 document.write("<br></br>");
             }
